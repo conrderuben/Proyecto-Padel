@@ -83,6 +83,9 @@ public class Usuario {
 		builder.append(puntuacion);
 		builder.append("]");
 		return builder.toString();
+		
+		
 	}
+	
 	
 }
