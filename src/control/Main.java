@@ -19,35 +19,17 @@ import vista.Menu;
 import vista.MenuInicio;
 import vista.MenuPrincipal;
 
-
-
 public class Main {
-	public static List<String> fileLista=new ArrayList<String>();
-	
+	public static List<String> fileLista = new ArrayList<String>();
+
 	public static void leerDatosIniciales(String fichero) {
-		fileLista=LecturaFichero.lecturaCompletaLineas(fichero);
+		fileLista = LecturaFichero.lecturaCompletaLineas(fichero);
 	}
-	
-		
+
 	public static void main(String[] args) {
 
-		
-		
 		MenuPrincipal.menuprincipal.setVisible(false);
 		MenuInicio.mostrarMenuRegistro(MenuPrincipal.menuprincipal);
-		
-		
-		
-	
-}
-}
 
-		
-		
-		
-		
-		
-		
-		
-	
-
+	}
+}
