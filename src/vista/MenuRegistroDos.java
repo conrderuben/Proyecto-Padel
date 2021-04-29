@@ -56,7 +56,7 @@ public class MenuRegistroDos extends JDialog {
 			public void windowClosing(WindowEvent e) {
 				String Botones[] = { "Salir", "Cancelar" };
 				int resultado = JOptionPane.showOptionDialog(null,
-						"¿Estás seguro de que quieres salir de la aplicación?", "SALIDA", JOptionPane.DEFAULT_OPTION,
+						"ï¿½Estï¿½s seguro de que quieres salir de la aplicaciï¿½n?", "SALIDA", JOptionPane.DEFAULT_OPTION,
 						JOptionPane.WARNING_MESSAGE, null, Botones, Botones[1]);
 				if (resultado == JOptionPane.YES_OPTION) {
 					System.exit(0);
@@ -105,9 +105,12 @@ public class MenuRegistroDos extends JDialog {
 		contentPanel.add(p1);
 
 		JRadioButton rdbtn1P1 = new JRadioButton("Menos de 2");
+		rdbtn1P1.setBackground(Color.WHITE);
 		grupo1.add(rdbtn1P1);
 		rdbtn1P1.setBounds(133, 121, 107, 23);
 		contentPanel.add(rdbtn1P1);
+		
+	
 
 		JRadioButton rdbtn1P2 = new JRadioButton("Entre 2 y 6");
 		grupo1.add(rdbtn1P2);
@@ -168,6 +171,7 @@ public class MenuRegistroDos extends JDialog {
 		contentPanel.add(p4);
 
 		JRadioButton rdbtn4P1 = new JRadioButton("Pr\u00E1cticamente nada");
+		rdbtn4P1.setBackground(new Color(255, 255, 255));
 		grupo4.add(rdbtn4P1);
 		rdbtn4P1.setBounds(98, 295, 140, 23);
 		contentPanel.add(rdbtn4P1);
