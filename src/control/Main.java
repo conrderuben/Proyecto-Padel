@@ -30,7 +30,7 @@ public class Main {
 
 		MenuPrincipal.menuprincipal.setVisible(false);
 		MenuInicio.mostrarMenuRegistro(MenuPrincipal.menuprincipal);
-		System.out.println();
+		System.out.println("oleeeeeee");
 
 	}
 }
