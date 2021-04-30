@@ -21,14 +21,28 @@ import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JTextField;
 
 public class MenuPrincipal extends JFrame {
-	public static MenuPrincipal menuprincipal = new MenuPrincipal();
+	public static void DatosUsuario() {
+		
+	}
+	static String usuario;
+
+	public static String datosUsuario(String user) {
+		return user;
+	}
+
+
+	public static MenuPrincipal menuprincipal = new MenuPrincipal(usuario);
 	private JPanel contentPane;
+	private JTextField textField;
 	
 
 	
-	 public  MenuPrincipal() {
+	 public  MenuPrincipal(String usuario) {
+		String user;
+		
 	 	setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/vista/icono.png")));
 //	 	setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/img/key.png")));
 //	 	this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/key.png")));
@@ -41,7 +55,7 @@ public class MenuPrincipal extends JFrame {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				String Botones[] = {"Salir", "Cancelar"};
-				int resultado = JOptionPane.showOptionDialog(null, "¿Estás seguro de que quieres salir de la aplicación?", "SALIDA", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, Botones, Botones[1]);
+				int resultado = JOptionPane.showOptionDialog(null, "ï¿½Estï¿½s seguro de que quieres salir de la aplicaciï¿½n?", "SALIDA", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, Botones, Botones[1]);
 				if (resultado == JOptionPane.YES_OPTION) {
 					System.exit(0);
 				}
@@ -82,6 +96,13 @@ public class MenuPrincipal extends JFrame {
 		contentPane.add(btnConsultaRecinto);
 		
 		JButton btnEquipo = new JButton("Equipo");
+		btnEquipo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				menuprincipal.setVisible(false);
+				MenuEquipos.mostrarMenuEquipos(menuprincipal);
+				
+			}
+		});
 		btnEquipo.setBounds(321, 353, 180, 33);
 		contentPane.add(btnEquipo);
 		
@@ -89,10 +110,16 @@ public class MenuPrincipal extends JFrame {
 		btnPerfil.setBounds(321, 415, 180, 33);
 		contentPane.add(btnPerfil);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/vista/Menuprincipal.jpg")));
-		lblNewLabel_1.setBounds(0, 0, 834, 548);
-		contentPane.add(lblNewLabel_1);
+		textField = new JTextField();
+		textField.setBounds(38, 39, 137, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		textField.setText(usuario);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("");
+		lblNewLabel_1_1.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/vista/Menuprincipal.jpg")));
+		lblNewLabel_1_1.setBounds(0, 0, 834, 548);
+		contentPane.add(lblNewLabel_1_1);
 	}
 
 }
