@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 import clases.Direccion;
 import clases.Usuario;
 import control.Clave;
-import control.ControlMenu;
 import control.InicioSesion;
 import control.Main;
 import modelo.dao.DireccionesDAO;
@@ -34,7 +33,6 @@ public class Lectura {
 		ArrayList<String> listaReservas = new ArrayList<String>();
 		System.out.println("Selecciona el nombre del recinto:");
 		s = scan.nextLine();
-		Escritura.mostrarConsultaPistas(PistasDAO.obtenerDatosPistas(s));
 		System.out.println("Elige el n\u00famero de pista");
 		n = PistasDAO.obtenerIdPista(scan.next(), s);
 		PistasDAO.ocuparPista(n);

@@ -15,7 +15,6 @@ import javax.swing.JFrame;
 import clases.Direccion;
 import clases.Usuario;
 import modelo.ficheros.LecturaFichero;
-import vista.Menu;
 import vista.MenuInicio;
 import vista.MenuPrincipal;
 
