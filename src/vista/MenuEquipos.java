@@ -17,6 +17,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JList;
 import java.awt.Color;
 import javax.swing.UIManager;
+import java.awt.Toolkit;
 
 public class MenuEquipos extends JDialog {
 	private JTextField textField;
@@ -30,6 +31,8 @@ public class MenuEquipos extends JDialog {
 	}
 	
 	public MenuEquipos() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuEquipos.class.getResource("/vista/icono.png")));
+		setTitle("PLEITOMYK - EQUIPOS");
 		
 		setBounds(100, 100, 791, 513);
 		getContentPane().setLayout(null);
@@ -79,7 +82,7 @@ public class MenuEquipos extends JDialog {
 		lblNewLabel_1_1.setBounds(137, 28, 251, 21);
 		panel_1.add(lblNewLabel_1_1);
 		
-		JLabel lblNewLabel_3_1_1 = new JLabel("Añadir jugador");
+		JLabel lblNewLabel_3_1_1 = new JLabel("A\u00f1adir jugador");
 		lblNewLabel_3_1_1.setForeground(Color.LIGHT_GRAY);
 		lblNewLabel_3_1_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_3_1_1.setBounds(23, 173, 150, 23);
@@ -91,7 +94,7 @@ public class MenuEquipos extends JDialog {
 		textField_2.setBounds(201, 177, 155, 20);
 		panel_1.add(textField_2);
 		
-		JButton btnNewButton_1_1 = new JButton("Añadir\r\n");
+		JButton btnNewButton_1_1 = new JButton("A\u00f1adir\r\n");
 		btnNewButton_1_1.setForeground(Color.DARK_GRAY);
 		btnNewButton_1_1.setBackground(Color.LIGHT_GRAY);
 		btnNewButton_1_1.setBounds(395, 176, 89, 23);
@@ -129,7 +132,7 @@ public class MenuEquipos extends JDialog {
 		lblNewLabel_1.setBounds(300, 80, 172, 21);
 		panel.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Menu de Equipos");
+		JLabel lblNewLabel_2 = new JLabel("Men\u00fa de equipos");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 32));
 		lblNewLabel_2.setBounds(215, 28, 323, 41);

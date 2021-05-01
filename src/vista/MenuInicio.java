@@ -29,7 +29,7 @@ import java.awt.event.MouseEvent;
 public class MenuInicio extends JDialog {
 
 	private JPanel contentPane;
-	public static void mostrarMenuRegistro(JFrame menuprincipal) {
+	public static void mostrarMenuInicio(JFrame menuprincipal) {
 		MenuInicio menuregistro = new MenuInicio(menuprincipal);
 		menuregistro.setVisible(true);
 	}
@@ -52,7 +52,7 @@ public class MenuInicio extends JDialog {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				String Botones[] = {"Salir", "Cancelar"};
-				int resultado = JOptionPane.showOptionDialog(null, "¿Estás seguro de que quieres salir de la aplicación?", "SALIDA", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, Botones, Botones[1]);
+				int resultado = JOptionPane.showOptionDialog(null, "\u00bfEst\u00e1s seguro de que quieres salir de la aplicaci\u00f3n?", "SALIDA", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, Botones, Botones[1]);
 				if (resultado == JOptionPane.YES_OPTION) {
 					System.exit(0);
 				}

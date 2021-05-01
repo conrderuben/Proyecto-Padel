@@ -409,7 +409,7 @@ public class MenuRegistroUno extends JDialog {
 			cancelButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					dispose();
-					MenuInicio.mostrarMenuRegistro(MenuPrincipal.menuprincipal);
+					MenuInicio.mostrarMenuInicio(MenuPrincipal.menuprincipal);
 				}
 			});
 			cancelButton.setActionCommand("Cancel");

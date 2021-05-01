@@ -29,7 +29,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		MenuPrincipal.menuprincipal.setVisible(false);
-		MenuInicio.mostrarMenuRegistro(MenuPrincipal.menuprincipal);
+		MenuInicio.mostrarMenuInicio(MenuPrincipal.menuprincipal);
 		
 
 	}

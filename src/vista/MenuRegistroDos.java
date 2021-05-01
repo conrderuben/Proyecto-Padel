@@ -56,7 +56,7 @@ public class MenuRegistroDos extends JDialog {
 			public void windowClosing(WindowEvent e) {
 				String Botones[] = { "Salir", "Cancelar" };
 				int resultado = JOptionPane.showOptionDialog(null,
-						"�Est�s seguro de que quieres salir de la aplicaci�n?", "SALIDA", JOptionPane.DEFAULT_OPTION,
+						"\u00bfEst\u00e1s seguro de que quieres salir de la aplicaci\u00f3n?", "SALIDA", JOptionPane.DEFAULT_OPTION,
 						JOptionPane.WARNING_MESSAGE, null, Botones, Botones[1]);
 				if (resultado == JOptionPane.YES_OPTION) {
 					System.exit(0);

@@ -53,7 +53,7 @@ public class MenuLogin extends JDialog{
 			@Override
 			public void windowClosing(WindowEvent e) {
 				String Botones[] = {"Salir", "Cancelar"};
-				int resultado = JOptionPane.showOptionDialog(null, "¿Estás seguro de que quieres salir de la aplicación?", "SALIDA", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, Botones, Botones[1]);
+				int resultado = JOptionPane.showOptionDialog(null, "\u00bfEst\u00e1s seguro de que quieres salir de la aplicaci\u00f3n?", "SALIDA", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, Botones, Botones[1]);
 				if (resultado == JOptionPane.YES_OPTION) {
 					System.exit(0);
 				}
@@ -117,7 +117,7 @@ public class MenuLogin extends JDialog{
 		btnback.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
-				MenuInicio.mostrarMenuRegistro(MenuPrincipal.menuprincipal);
+				MenuInicio.mostrarMenuInicio(MenuPrincipal.menuprincipal);
 			}
 		});
 		btnback.setBounds(10, 11, 53, 23);
