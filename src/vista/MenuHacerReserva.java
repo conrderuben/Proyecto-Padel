@@ -62,7 +62,7 @@ public class MenuHacerReserva extends JDialog {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				String Botones[] = {"Salir", "Cancelar"};
-				int resultado = JOptionPane.showOptionDialog(null, "¿Estás seguro de que quieres salir de la aplicación?", "SALIDA", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, Botones, Botones[1]);
+				int resultado = JOptionPane.showOptionDialog(null, "¿Est\u00e1s seguro de que quieres salir de la aplicaci\u00f3n?", "SALIDA", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, Botones, Botones[1]);
 				if (resultado == JOptionPane.YES_OPTION) {
 					System.exit(0);
 				}
@@ -86,7 +86,7 @@ public class MenuHacerReserva extends JDialog {
 		lblNewLabel.setBounds(81, 61, 125, 32);
 		contentPanel.add(lblNewLabel);
 		JComboBox comboBox = new JComboBox(RecintosDAO.sacarListaRecintos().toArray());
-		comboBox.setToolTipText("selecciona");
+		comboBox.setToolTipText("Selecciona");
 		comboBox.setBounds(321, 71, 148, 22);
 		contentPanel.add(comboBox);
 		

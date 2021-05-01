@@ -65,6 +65,7 @@ public class Lectura {
 				if (Clave.loginClave(claveAlmacenada, claveIntroducida)) {
 					JOptionPane.showMessageDialog(null, "Contrase\u00f1a correcta");
 					
+					
 					MenuPrincipal.usuario=MenuPrincipal.datosUsuario(usuario);
 					MenuPrincipal.menuprincipal.setVisible(true);
 
