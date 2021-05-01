@@ -16,6 +16,8 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
 public class MenuPerfil extends JDialog {
@@ -29,12 +31,25 @@ public class MenuPerfil extends JDialog {
 	}
 	
 	public static void mostrarMenuPerfil(JFrame menuprincipal) {
-		MenuPerfil dialog = new MenuPerfil();
+		MenuPerfil dialog = new MenuPerfil(menuprincipal);
 		dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		dialog.setVisible(true);
 	}
 
-	public MenuPerfil() {
+	public MenuPerfil(JFrame menuprincipal) {
+		
+		this.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				String Botones[] = {"Salir", "Cancelar"};
+				int resultado = JOptionPane.showOptionDialog(null, "\u00bfEst\u00e1s seguro de que quieres salir de la aplicaci\u00f3n?", "SALIDA", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, Botones, Botones[1]);
+				if (resultado == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
+		
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPerfil.class.getResource("/vista/icono.png")));
 		setTitle("PLEITOMYK - PERFIL");
@@ -81,6 +96,16 @@ public class MenuPerfil extends JDialog {
 		JButton btnNewButton = new JButton("Ver datos");
 		btnNewButton.setBounds(30, 206, 164, 23);
 		getContentPane().add(btnNewButton);
+		
+		JButton btnback = new JButton("<<");
+		btnback.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				menuprincipal.setVisible(true);
+			}
+		});
+		btnback.setBounds(30, 400, 49, 23);
+		getContentPane().add(btnback);
 		contentPanel.setLayout(new FlowLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 	}

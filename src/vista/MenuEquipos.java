@@ -15,9 +15,13 @@ import javax.swing.JScrollBar;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import javax.swing.UIManager;
 import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class MenuEquipos extends JDialog {
 	private JTextField textField;
@@ -31,6 +35,19 @@ public class MenuEquipos extends JDialog {
 	}
 	
 	public MenuEquipos() {
+		
+		this.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				String Botones[] = {"Salir", "Cancelar"};
+				int resultado = JOptionPane.showOptionDialog(null, "\u00bfEst\u00e1s seguro de que quieres salir de la aplicaci\u00f3n?", "SALIDA", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, Botones, Botones[1]);
+				if (resultado == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
+		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuEquipos.class.getResource("/vista/icono.png")));
 		setTitle("PLEITOMYK - EQUIPOS");
 		
