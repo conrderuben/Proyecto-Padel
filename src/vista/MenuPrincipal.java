@@ -24,6 +24,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JCheckBoxMenuItem;
 
 public class MenuPrincipal extends JFrame {
 	public static void DatosUsuario() {
@@ -68,13 +72,59 @@ public class MenuPrincipal extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBorderPainted(false);
+		menuBar.setBounds(0, 0, 171, 22);
+		contentPane.add(menuBar);
+		
+		JMenu menuInicio = new JMenu("Inicio");
+		menuBar.add(menuInicio);
+		
+		JMenuItem menuItemCosas = new JMenuItem("Cosas");
+		menuItemCosas.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/vista/vaya.png")));
+		menuInicio.add(menuItemCosas);
+		
+		JMenu menuTienda = new JMenu("Tienda");
+		menuBar.add(menuTienda);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Palas y paleteros");
+		mntmNewMenuItem.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/vista/palapadel.png")));
+		menuTienda.add(mntmNewMenuItem);
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Pelotas");
+		mntmNewMenuItem_1.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/vista/pelota.png")));
+		menuTienda.add(mntmNewMenuItem_1);
+		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Mochilas");
+		mntmNewMenuItem_2.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/vista/mochila.png")));
+		menuTienda.add(mntmNewMenuItem_2);
+		
+		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Ropa");
+		mntmNewMenuItem_3.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/vista/camiseta.png")));
+		menuTienda.add(mntmNewMenuItem_3);
+		
+		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Carrito");
+		mntmNewMenuItem_4.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/vista/carrito.png")));
+		menuTienda.add(mntmNewMenuItem_4);
+		
+		JMenu menuInformacion = new JMenu("Informaci\u00F3n");
+		menuBar.add(menuInformacion);
+		
+		JMenuItem menuItemSoporte = new JMenuItem("Soporte");
+		menuItemSoporte.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/vista/mensaje.png")));
+		menuInformacion.add(menuItemSoporte);
+		
+		JMenuItem menuItemSobreNosotros = new JMenuItem("Sobre nosotros");
+		menuItemSobreNosotros.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/vista/info.png")));
+		menuInformacion.add(menuItemSobreNosotros);
 
-		JLabel lblNewLabel = new JLabel("PLEITOMYK");
-		lblNewLabel.setForeground(new Color(51, 204, 51));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Sitka Subheading", Font.BOLD, 48));
-		lblNewLabel.setBounds(258, 54, 321, 87);
-		contentPane.add(lblNewLabel);
+		JLabel textoTitulo = new JLabel("PLEITOMYK");
+		textoTitulo.setForeground(new Color(51, 204, 51));
+		textoTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		textoTitulo.setFont(new Font("Sitka Subheading", Font.BOLD, 48));
+		textoTitulo.setBounds(258, 54, 321, 87);
+		contentPane.add(textoTitulo);
 
 		JLabel nombreUsuario = new JLabel();
 		nombreUsuario.setVisible(false);
@@ -96,10 +146,24 @@ public class MenuPrincipal extends JFrame {
 		contentPane.add(btnHacerReserva);
 
 		JButton btnReservas = new JButton("Tus reservas");
+		btnReservas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				menuprincipal.setVisible(false);
+				MenuVerReservas.usuario = MenuVerReservas.datosUsuario(MenuPrincipal.usuario);
+				MenuVerReservas.mostrarMenuVerReservas(menuprincipal);
+			}
+		});
 		btnReservas.setBounds(321, 230, 180, 33);
 		contentPane.add(btnReservas);
 
 		JButton btnConsultaRecinto = new JButton("Consultar recintos");
+		btnConsultaRecinto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				menuprincipal.setVisible(false);
+				MenuVerRecintos.usuario = MenuVerRecintos.datosUsuario(MenuPrincipal.usuario);
+				MenuVerRecintos.mostrarMenuVerRecintos(menuprincipal);
+			}
+		});
 		btnConsultaRecinto.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -115,22 +179,10 @@ public class MenuPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				menuprincipal.setVisible(false);
 				MenuEquipos.mostrarMenuEquipos(menuprincipal);
-
 			}
 		});
 		btnEquipo.setBounds(321, 353, 180, 33);
 		contentPane.add(btnEquipo);
-
-		JButton btnPerfil = new JButton("Perfil");
-		btnPerfil.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				menuprincipal.setVisible(false);
-				MenuPerfil.usuario = MenuPerfil.datosUsuario(MenuPrincipal.usuario);
-				MenuPerfil.mostrarMenuPerfil(menuprincipal);
-			}
-		});
-		btnPerfil.setBounds(321, 415, 180, 33);
-		contentPane.add(btnPerfil);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("");
 		lblNewLabel_1_1.addMouseListener(new MouseAdapter() {
@@ -140,9 +192,19 @@ public class MenuPrincipal extends JFrame {
 				nombreUsuario.setVisible(true);
 			}
 		});
+		
+				JButton btnPerfil = new JButton("Perfil");
+				btnPerfil.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						menuprincipal.setVisible(false);
+						MenuPerfil.usuario = MenuPerfil.datosUsuario(MenuPrincipal.usuario);
+						MenuPerfil.mostrarMenuPerfil(menuprincipal);
+					}
+				});
+				btnPerfil.setBounds(321, 415, 180, 33);
+				contentPane.add(btnPerfil);
 		lblNewLabel_1_1.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/vista/Menuprincipal.jpg")));
 		lblNewLabel_1_1.setBounds(0, 0, 834, 548);
 		contentPane.add(lblNewLabel_1_1);
 	}
-
 }

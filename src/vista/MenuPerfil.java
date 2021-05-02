@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
 
 public class MenuPerfil extends JDialog {
 
@@ -57,14 +58,14 @@ public class MenuPerfil extends JDialog {
 		getContentPane().setLayout(null);
 		setLocationRelativeTo(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("Perfil");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 40));
-		lblNewLabel_1.setBounds(10, 29, 621, 59);
-		getContentPane().add(lblNewLabel_1);
+		JLabel textoTitulo = new JLabel("Perfil");
+		textoTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		textoTitulo.setFont(new Font("Tahoma", Font.BOLD, 40));
+		textoTitulo.setBounds(10, 29, 621, 59);
+		getContentPane().add(textoTitulo);
 		
-		JButton cerrarSesion = new JButton("Cerrar sesi\u00F3n");
-		cerrarSesion.addActionListener(new ActionListener() {
+		JButton botonCerrarSesion = new JButton("Cerrar sesi\u00F3n");
+		botonCerrarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String Botones[] = { "Salir", "Volver" };
 				int resultado = JOptionPane.showOptionDialog(null,
@@ -76,36 +77,40 @@ public class MenuPerfil extends JDialog {
 				}
 			}
 		});
-		cerrarSesion.setBounds(30, 308, 164, 23);
-		getContentPane().add(cerrarSesion);
+		botonCerrarSesion.setBounds(30, 308, 164, 23);
+		getContentPane().add(botonCerrarSesion);
 		
-		JButton btnNewButton_1 = new JButton("Cambiar usuario");
-		btnNewButton_1.setBounds(30, 240, 164, 23);
-		getContentPane().add(btnNewButton_1);
+		JButton botonCambiarUsuario = new JButton("Cambiar usuario");
+		botonCambiarUsuario.setBounds(30, 240, 164, 23);
+		getContentPane().add(botonCambiarUsuario);
 		
-		JButton btnNewButton_2 = new JButton("Cambiar clave");
-		btnNewButton_2.setBounds(30, 274, 164, 23);
-		getContentPane().add(btnNewButton_2);
+		JButton botonCambiarClave = new JButton("Cambiar clave");
+		botonCambiarClave.setBounds(30, 274, 164, 23);
+		getContentPane().add(botonCambiarClave);
 		
-		JLabel lblNewLabel = new JLabel(usuario);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(10, 99, 621, 14);
-		getContentPane().add(lblNewLabel);
+		JLabel textoUsuario = new JLabel(usuario);
+		textoUsuario.setHorizontalAlignment(SwingConstants.CENTER);
+		textoUsuario.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		textoUsuario.setBounds(10, 99, 621, 14);
+		getContentPane().add(textoUsuario);
 		
-		JButton btnNewButton = new JButton("Ver datos");
-		btnNewButton.setBounds(30, 206, 164, 23);
-		getContentPane().add(btnNewButton);
+		JButton botonVerDatos = new JButton("Ver datos");
+		botonVerDatos.setBounds(30, 206, 164, 23);
+		getContentPane().add(botonVerDatos);
 		
-		JButton btnback = new JButton("<<");
-		btnback.addActionListener(new ActionListener() {
+		JButton botonVolver = new JButton("<<");
+		botonVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
 				menuprincipal.setVisible(true);
 			}
 		});
-		btnback.setBounds(30, 400, 49, 23);
-		getContentPane().add(btnback);
+		botonVolver.setBounds(30, 400, 49, 23);
+		getContentPane().add(botonVolver);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(256, 153, 340, 231);
+		getContentPane().add(textArea);
 		contentPanel.setLayout(new FlowLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 	}

@@ -48,10 +48,8 @@ public class MenuRegistroUno extends JDialog {
 	private final ButtonGroup grupoPago = new ButtonGroup();
 	private JPasswordField passwordField;
 
-	
 	public static MenuRegistroUno dialogMenuRegistroUno = new MenuRegistroUno();
-	
-	
+
 	public static void mostrarRegistro(JFrame menuprincipal) {
 		dialogMenuRegistroUno.setVisible(true);
 	}
@@ -81,7 +79,7 @@ public class MenuRegistroUno extends JDialog {
 				}
 			}
 		});
-		
+
 		JLabel errorUsuario = new JLabel("* Este campo no es v\u00E1lido.");
 		errorUsuario.setForeground(Color.RED);
 		errorUsuario.setFont(new Font("Tahoma", Font.BOLD, 10));
@@ -123,7 +121,7 @@ public class MenuRegistroUno extends JDialog {
 		errorClave.setBounds(375, 157, 210, 14);
 		errorClave.setVisible(false);
 		contentPanel.add(errorClave);
-		
+
 		JLabel errorUsuarioEnUso = new JLabel("* Este usuario ya existe.");
 		errorUsuarioEnUso.setForeground(Color.RED);
 		errorUsuarioEnUso.setFont(new Font("Tahoma", Font.BOLD, 10));
@@ -276,22 +274,34 @@ public class MenuRegistroUno extends JDialog {
 
 		JRadioButton pago1 = new JRadioButton("Tarjeta");
 		grupoPago.add(pago1);
-		pago1.setBounds(192, 245, 71, 23);
+		pago1.setBounds(189, 246, 71, 23);
+		pago1.setOpaque(false);
+		pago1.setContentAreaFilled(false);
+		pago1.setBorderPainted(false);
 		contentPanel.add(pago1);
 
 		JRadioButton pago2 = new JRadioButton("PayPal");
 		grupoPago.add(pago2);
 		pago2.setBounds(267, 245, 71, 23);
+		pago2.setOpaque(false);
+		pago2.setContentAreaFilled(false);
+		pago2.setBorderPainted(false);
 		contentPanel.add(pago2);
 
 		JRadioButton pago3 = new JRadioButton("Bizum");
 		grupoPago.add(pago3);
 		pago3.setBounds(338, 246, 60, 23);
+		pago3.setOpaque(false);
+		pago3.setContentAreaFilled(false);
+		pago3.setBorderPainted(false);
 		contentPanel.add(pago3);
 
 		JCheckBox terminos = new JCheckBox("Acepto los t\u00E9rminos y condiciones del servicio Pleitomyk.");
 		terminos.setFont(new Font("Tahoma", Font.BOLD, 11));
 		terminos.setBounds(43, 291, 354, 23);
+		terminos.setOpaque(false);
+		terminos.setContentAreaFilled(false);
+		terminos.setBorderPainted(false);
 		contentPanel.add(terminos);
 
 		passwordField = new JPasswordField();
@@ -300,7 +310,8 @@ public class MenuRegistroUno extends JDialog {
 		passwordField.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!(passwordField.getText().isBlank() || Clave.comprobar(passwordField.getText()))) {
+				if (!(passwordField.getText().isBlank() || Clave.comprobar(passwordField.getText())
+						|| passwordField.getText().equals(usuario.getText()))) {
 					errorClave.setVisible(false);
 				}
 			}
@@ -308,7 +319,8 @@ public class MenuRegistroUno extends JDialog {
 		passwordField.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusLost(FocusEvent e) {
-				if (passwordField.getText().isBlank() || Clave.comprobar(passwordField.getText())) {
+				if (passwordField.getText().isBlank() || Clave.comprobar(passwordField.getText())
+						|| passwordField.getText().equals(usuario.getText())) {
 					errorClave.setVisible(true);
 				} else {
 					errorClave.setVisible(false);
@@ -357,10 +369,9 @@ public class MenuRegistroUno extends JDialog {
 					}
 
 					if (errorCalleNumero.isVisible() || errorClave.isVisible() || errorCP.isVisible()
-							|| errorUsuario.isVisible() || errorTerminos.isVisible() || usuario.getText().isBlank()
-							|| passwordField.getText().isBlank() || CP.getText().isBlank()
-							|| calle.getText().isBlank() || numero.getText().isBlank() || grupoPago.isSelected(null)
-							|| !terminos.isSelected()) {
+							|| errorUsuario.isVisible() || usuario.getText().isBlank()
+							|| passwordField.getText().isBlank() || CP.getText().isBlank() || calle.getText().isBlank()
+							|| numero.getText().isBlank() || grupoPago.isSelected(null) || !terminos.isSelected()) {
 
 						if (usuario.getText().isBlank()) {
 							errorUsuario.setVisible(true);
@@ -414,7 +425,7 @@ public class MenuRegistroUno extends JDialog {
 			});
 			cancelButton.setActionCommand("Cancel");
 		}
-		
+
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(MenuRegistroUno.class.getResource("/vista/fondoregistrouno.jpg")));
 		lblNewLabel.setBounds(0, 0, 697, 387);
