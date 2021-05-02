@@ -65,6 +65,10 @@ public class MenuPrincipal extends JFrame {
 					System.exit(0);
 				}
 			}
+			@Override
+			public void windowOpened(WindowEvent e) {
+				getContentPane().requestFocusInWindow();
+			}
 		});
 
 		contentPane = new JPanel();
@@ -111,11 +115,23 @@ public class MenuPrincipal extends JFrame {
 		JMenu menuInformacion = new JMenu("Informaci\u00F3n");
 		menuBar.add(menuInformacion);
 		
-		JMenuItem menuItemSoporte = new JMenuItem("Soporte");
-		menuItemSoporte.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/vista/mensaje.png")));
-		menuInformacion.add(menuItemSoporte);
+		JMenuItem menuItemContactar = new JMenuItem("Contactar");
+		menuItemContactar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				menuprincipal.setVisible(false);
+				MenuContactar.mostrarMenuContactar(menuprincipal);
+			}
+		});
+		menuItemContactar.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/vista/mensaje.png")));
+		menuInformacion.add(menuItemContactar);
 		
 		JMenuItem menuItemSobreNosotros = new JMenuItem("Sobre nosotros");
+		menuItemSobreNosotros.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				menuprincipal.setVisible(false);
+				MenuInformacion.mostrarMenuInformacion(menuprincipal);
+			}
+		});
 		menuItemSobreNosotros.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/vista/info.png")));
 		menuInformacion.add(menuItemSobreNosotros);
 

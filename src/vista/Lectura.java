@@ -41,32 +41,24 @@ public class Lectura {
 		System.out.println("Escribe la fecha de la reserva: (yyyy-mm-dd)");
 		listaReservas.add(scan.next());
 		return listaReservas;
-
 	}
 
 	public static void leerDatosLogin(String usuario, String claveIntroducida) {
 
 		String claveAlmacenada = "";
-
 		boolean invalido = true;
 
 		while (invalido) {
 			claveAlmacenada = InicioSesion.verificaUsuario(usuario);
 			if (claveAlmacenada.equals("")) {
-				JOptionPane.showMessageDialog(null, "Usuario no encontrado","ERROR", JOptionPane.ERROR_MESSAGE);
-
+				JOptionPane.showMessageDialog(null, "Usuario no encontrado", "ERROR", JOptionPane.ERROR_MESSAGE);
 				vista.MenuLogin.mostrarMenuSesion(MenuPrincipal.menuprincipal);
-
 				invalido = false;
 			} else {
-
 				if (Clave.loginClave(claveAlmacenada, claveIntroducida)) {
-					JOptionPane.showMessageDialog(null, "Contrase\u00f1a correcta");
-					
-					
-					MenuPrincipal.usuario=MenuPrincipal.datosUsuario(usuario);
+//					JOptionPane.showMessageDialog(null, "Contrase\u00f1a correcta");
+					MenuPrincipal.usuario = MenuPrincipal.datosUsuario(usuario);
 					MenuPrincipal.menuprincipal.setVisible(true);
-
 					invalido = false;
 				} else {
 					JOptionPane.showMessageDialog(null, "Contrase\u00f1a incorrecta");
@@ -74,9 +66,7 @@ public class Lectura {
 					invalido = false;
 				}
 			}
-
 		}
-
 	}
 
 	public static void leerDatosRegistro(String nombre, String clave, int codigoPostal, String calle, int numero,
@@ -84,17 +74,12 @@ public class Lectura {
 
 		Direccion dir;
 		int idUsuario = 0;
-
 		String claveCifrada = "";
-
 		char nivel = 'n';
 		int puntuacion = 0;
-
 		int id = 0;
 		boolean noValido = true;
-
 		noValido = Clave.comprobar(clave);
-		
 
 		if (!noValido) {
 			try {

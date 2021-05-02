@@ -54,6 +54,10 @@ public class MenuInicio extends JDialog {
 					System.exit(0);
 				}
 			}
+			@Override
+			public void windowOpened(WindowEvent e) {
+				getContentPane().requestFocusInWindow();
+			}
 		});
 		
 		JButton btnIniciarSesion = new JButton("Iniciar sesi\u00f3n");

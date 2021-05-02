@@ -33,7 +33,7 @@ public class MenuEquipos extends JDialog {
 
 	private JTextField textCrearEquipo;
 	private JTextField textEquipoActual;
-	private JTextField textAñadirJugador;
+	private JTextField textAgregarJugador;
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -121,17 +121,17 @@ public class MenuEquipos extends JDialog {
 		lblNewLabel_3_1_1.setBounds(23, 173, 150, 23);
 		panel_1.add(lblNewLabel_3_1_1);
 
-		textAñadirJugador = new JTextField();
-		textAñadirJugador.setColumns(10);
-		textAñadirJugador.setBackground(Color.LIGHT_GRAY);
-		textAñadirJugador.setBounds(201, 177, 155, 20);
-		panel_1.add(textAñadirJugador);
+		textAgregarJugador = new JTextField();
+		textAgregarJugador.setColumns(10);
+		textAgregarJugador.setBackground(Color.LIGHT_GRAY);
+		textAgregarJugador.setBounds(201, 177, 155, 20);
+		panel_1.add(textAgregarJugador);
 
-		JButton btnAñadirJugador = new JButton("A\u00f1adir\r\n");
-		btnAñadirJugador.setForeground(Color.DARK_GRAY);
-		btnAñadirJugador.setBackground(Color.LIGHT_GRAY);
-		btnAñadirJugador.setBounds(395, 176, 89, 23);
-		panel_1.add(btnAñadirJugador);
+		JButton btnAgregarJugador = new JButton("A\u00f1adir\r\n");
+		btnAgregarJugador.setForeground(Color.DARK_GRAY);
+		btnAgregarJugador.setBackground(Color.LIGHT_GRAY);
+		btnAgregarJugador.setBounds(395, 176, 89, 23);
+		panel_1.add(btnAgregarJugador);
 
 		JButton btnBorrarJugador = new JButton("Borrar jugador seleccionado");
 		btnBorrarJugador.setForeground(Color.DARK_GRAY);
