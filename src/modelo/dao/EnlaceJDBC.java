@@ -41,5 +41,19 @@ public class EnlaceJDBC {
 		return filas;
 
 	}
+	
+
+	public boolean update(String sql) throws SQLException {
+
+		connection = Conexion.conectar();
+		Statement statement = connection.createStatement();
+
+		// Ejecutamos la sentencia
+		boolean rowUpdated = statement.executeUpdate(sql) > 0;
+
+		statement.close();
+		Conexion.desconectar();
+		return rowUpdated;
+	}
 
 }
