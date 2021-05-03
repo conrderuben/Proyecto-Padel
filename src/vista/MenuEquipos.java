@@ -17,6 +17,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JScrollBar;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -27,6 +28,8 @@ import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 
 public class MenuEquipos extends JDialog {
@@ -101,8 +104,10 @@ public class MenuEquipos extends JDialog {
 		DefaultListModel modelo= new DefaultListModel();
 		modelo.addAll(EquiposDAO.obtenerJugadores(textEquipoActual.getText()));
 		
+		
 		JList list = new JList(modelo);
 		list.setBackground(Color.LIGHT_GRAY);
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		
 		JScrollPane scrollPane = new JScrollPane(list);
@@ -134,6 +139,18 @@ public class MenuEquipos extends JDialog {
 		panel_1.add(btnAgregarJugador);
 
 		JButton btnBorrarJugador = new JButton("Borrar jugador seleccionado");
+		btnBorrarJugador.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try{
+					EquiposDAO.borrarJugadorEquipo(list.getSelectedValue().toString());
+					modelo.remove(list.getSelectedIndex());
+				}catch(Exception E){
+					JOptionPane.showMessageDialog(null, "Debes selccionar un jugador", "ERROR",
+							JOptionPane.ERROR_MESSAGE);
+				}
+				
+			}
+		});
 		btnBorrarJugador.setForeground(Color.DARK_GRAY);
 		btnBorrarJugador.setBackground(Color.LIGHT_GRAY);
 		btnBorrarJugador.setBounds(502, 236, 229, 23);
@@ -175,13 +192,41 @@ public class MenuEquipos extends JDialog {
 		JButton btnCrearEquipo = new JButton("Crear equipo");
 		btnCrearEquipo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				EquiposDAO.insertarEquipo(textCrearEquipo.getText(), usuario);
+				EquiposDAO.insertarEquipo(textCrearEquipo.getText(), MenuPrincipal.usuario);
 				textEquipoActual.setText(EquiposDAO.obtenerEquipo(MenuPrincipal.usuario));
+				textCrearEquipo.setText(null);
 			}
 		});
 		btnCrearEquipo.setForeground(Color.DARK_GRAY);
 		btnCrearEquipo.setBackground(new Color(128, 128, 128));
 		btnCrearEquipo.setBounds(563, 136, 128, 23);
 		panel.add(btnCrearEquipo);
+		
+		JButton btnback = new JButton("<<");
+		btnback.setForeground(Color.LIGHT_GRAY);
+		btnback.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnback.setBackground(Color.LIGHT_GRAY);
+				btnback.setForeground(Color.DARK_GRAY);
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnback.setBackground(Color.DARK_GRAY);
+				btnback.setForeground(Color.LIGHT_GRAY);
+			}
+		});
+		btnback.setBackground(Color.DARK_GRAY);
+		btnback.setForeground(Color.LIGHT_GRAY);
+		btnback.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				menuprincipal.setVisible(true);
+				
+			}
+		});
+		btnback.setBounds(10, 11, 53, 23);
+		panel.add(btnback);
 	}
 }

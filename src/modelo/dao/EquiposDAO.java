@@ -7,12 +7,12 @@ import java.util.List;
 
 public class EquiposDAO {
 
-		public static void insertarEquipo(String nombre, String usuario) {
+		public static void insertarEquipo(String nombreEquipo, String usuario) {
 			
 			try {
 				EnlaceJDBC enlace=new EnlaceJDBC();
-				enlace.insertar("Insert into equipos values(0, '" + nombre + "' );");
-				enlace.update("update usuarios set id_equipo=(select id_equipo from equipos where nombre = '" +nombre+ "') where nombre = '" + usuario + "';" );
+				enlace.insertar("Insert into equipos values(0, '" + nombreEquipo + "' );");
+				enlace.update("update usuarios set id_equipo=(select id_equipo from equipos where nombre = '" +nombreEquipo+ "') where nombre = '" + usuario + "';" );
 					
 				
 			} catch (SQLException e) {
@@ -56,7 +56,20 @@ public class EquiposDAO {
 			
 			return consultaJugadores;
 		}
-		
+		public static void borrarJugadorEquipo(String usuario) {
+			
+			try {
+				EnlaceJDBC enlace=new EnlaceJDBC();
+				enlace.update("update usuarios set id_equipo=1 where nombre = '" + usuario + "';" );
+					
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}
 		
 	
 }

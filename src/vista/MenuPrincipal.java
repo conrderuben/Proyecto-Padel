@@ -151,6 +151,18 @@ public class MenuPrincipal extends JFrame {
 		contentPane.add(nombreUsuario);
 		
 		JButton btnHacerReserva = new JButton("Hacer una reserva");
+		btnHacerReserva.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnHacerReserva.setBackground(new java.awt.Color(49, 155, 198));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnHacerReserva.setBackground(new java.awt.Color(126, 204, 235));
+			}
+		});
+		btnHacerReserva.setBackground(new Color(126, 204, 235));
 		btnHacerReserva.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				menuprincipal.setVisible(false);
@@ -162,6 +174,18 @@ public class MenuPrincipal extends JFrame {
 		contentPane.add(btnHacerReserva);
 
 		JButton btnReservas = new JButton("Tus reservas");
+		btnReservas.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnReservas.setBackground(new java.awt.Color(49, 155, 198));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnReservas.setBackground(new java.awt.Color(126, 204, 235));
+			}
+		});
+		btnReservas.setBackground(new Color(126, 204, 235));
 		btnReservas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				menuprincipal.setVisible(false);
@@ -173,6 +197,18 @@ public class MenuPrincipal extends JFrame {
 		contentPane.add(btnReservas);
 
 		JButton btnConsultaRecinto = new JButton("Consultar recintos");
+		btnConsultaRecinto.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnConsultaRecinto.setBackground(new java.awt.Color(49, 155, 198));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnConsultaRecinto.setBackground(new java.awt.Color(126, 204, 235));
+			}
+		});
+		btnConsultaRecinto.setBackground(new Color(126, 204, 235));
 		btnConsultaRecinto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				menuprincipal.setVisible(false);
@@ -191,6 +227,18 @@ public class MenuPrincipal extends JFrame {
 		contentPane.add(btnConsultaRecinto);
 
 		JButton btnEquipo = new JButton("Equipo");
+		btnEquipo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnEquipo.setBackground(new java.awt.Color(49, 155, 198));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnEquipo.setBackground(new java.awt.Color(126, 204, 235));
+			}
+		});
+		btnEquipo.setBackground(new Color(126, 204, 235));
 		btnEquipo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				menuprincipal.setVisible(false);
@@ -210,6 +258,18 @@ public class MenuPrincipal extends JFrame {
 		});
 		
 				JButton btnPerfil = new JButton("Perfil");
+				btnPerfil.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						btnPerfil.setBackground(new java.awt.Color(49, 155, 198));
+					}
+
+					@Override
+					public void mouseExited(MouseEvent e) {
+						btnPerfil.setBackground(new java.awt.Color(126, 204, 235));
+					}
+				});
+				btnPerfil.setBackground(new Color(126, 204, 235));
 				btnPerfil.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						menuprincipal.setVisible(false);
