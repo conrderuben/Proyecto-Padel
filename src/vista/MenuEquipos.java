@@ -100,16 +100,13 @@ public class MenuEquipos extends JDialog {
 		lblNewLabel_4.setBounds(544, 26, 147, 27);
 		panel_1.add(lblNewLabel_4);
 
-		
-		DefaultListModel modelo= new DefaultListModel();
+		DefaultListModel modelo = new DefaultListModel();
 		modelo.addAll(EquiposDAO.obtenerJugadores(textEquipoActual.getText()));
-		
-		
+
 		JList list = new JList(modelo);
 		list.setBackground(Color.LIGHT_GRAY);
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
-		
+
 		JScrollPane scrollPane = new JScrollPane(list);
 		scrollPane.setBounds(502, 73, 229, 152);
 		panel_1.add(scrollPane);
@@ -141,14 +138,14 @@ public class MenuEquipos extends JDialog {
 		JButton btnBorrarJugador = new JButton("Borrar jugador seleccionado");
 		btnBorrarJugador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try{
+				try {
 					EquiposDAO.borrarJugadorEquipo(list.getSelectedValue().toString());
 					modelo.remove(list.getSelectedIndex());
-				}catch(Exception E){
+				} catch (Exception E) {
 					JOptionPane.showMessageDialog(null, "Debes selccionar un jugador", "ERROR",
 							JOptionPane.ERROR_MESSAGE);
 				}
-				
+
 			}
 		});
 		btnBorrarJugador.setForeground(Color.DARK_GRAY);
@@ -201,7 +198,7 @@ public class MenuEquipos extends JDialog {
 		btnCrearEquipo.setBackground(new Color(128, 128, 128));
 		btnCrearEquipo.setBounds(563, 136, 128, 23);
 		panel.add(btnCrearEquipo);
-		
+
 		JButton btnback = new JButton("<<");
 		btnback.setForeground(Color.LIGHT_GRAY);
 		btnback.addMouseListener(new MouseAdapter() {
@@ -223,7 +220,7 @@ public class MenuEquipos extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				menuprincipal.setVisible(true);
-				
+
 			}
 		});
 		btnback.setBounds(10, 11, 53, 23);
