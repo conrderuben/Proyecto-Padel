@@ -62,7 +62,7 @@ public class MenuHacerReserva extends JDialog {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				String Botones[] = {"Salir", "Cancelar"};
-				int resultado = JOptionPane.showOptionDialog(null, "¿Est\u00e1s seguro de que quieres salir de la aplicaci\u00f3n?", "SALIDA", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, Botones, Botones[1]);
+				int resultado = JOptionPane.showOptionDialog(null, "ï¿½Est\u00e1s seguro de que quieres salir de la aplicaci\u00f3n?", "SALIDA", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, Botones, Botones[1]);
 				if (resultado == JOptionPane.YES_OPTION) {
 					System.exit(0);
 				}
@@ -145,7 +145,7 @@ public class MenuHacerReserva extends JDialog {
 				if((calendar.getDate().getDate()+ "").length()==1 && (calendar.getDate().getMonth() + 1 + "").length()==1) {
 					fecha=(calendar.getDate().getYear()+1900) + "-0" + (calendar.getDate().getMonth() + 1) + "-0" + calendar.getDate().getDate();
 				}
-				System.out.println(fecha);
+				
 				listaReservas.add(PistasDAO.obtenerIdPista(comboBox_1.getSelectedItem().toString(), comboBox.getSelectedItem().toString().toString()) + "");
 				listaReservas.add(fecha);
 				

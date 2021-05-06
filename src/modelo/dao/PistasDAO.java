@@ -74,6 +74,26 @@ public static ArrayList sacarListaNumPista(String recinto){
 		
 		return listaPistas;
 	}
+
+public static int sacarPistaCubierta(String id_pista){
 	
+	int n=3;
+	ResultSet res=null;
+	try {
+		EnlaceJDBC enlace=new EnlaceJDBC();
+		res=enlace.seleccionRegistros("select cubierta from pistas where id_pista=" + id_pista + ";" );
+		while(res.next()) {
+			
+			n=res.getInt(1);
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	
+	return n;
+	
+}
 }
 

@@ -3,14 +3,18 @@ package modelo.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+
+import clases.Reserva;
+import vista.MenuPrincipal;
 
 public class ReservasDAO {
 	public static void insertarReserva(ArrayList<String> listaReservas) {
 		
 		try {
 			EnlaceJDBC enlace=new EnlaceJDBC();
-			enlace.insertar("Insert into reservas values(0, '" + listaReservas.get(1) + "', '" + listaReservas.get(0) + "');");
+			enlace.insertar("Insert into reservas values(0, '" + listaReservas.get(1) + "', '" + listaReservas.get(0) + "', (select id_usuario from usuarios where nombre= '" + MenuPrincipal.DatosUsuario() + "'));");
 				
 			
 		} catch (SQLException e) {
@@ -20,14 +24,14 @@ public class ReservasDAO {
 		
 		
 	}
-	public static List<String> obtenerDatosReserva(){
-		List<String> consultaReservas= new ArrayList<String>();
+	public static List<Reserva> obtenerDatosReserva(){
+		List<Reserva> consultaReservas= new ArrayList<Reserva>();
 		ResultSet res=null;
 		try {
 			EnlaceJDBC enlace=new EnlaceJDBC();
-			res=enlace.seleccionRegistros("select * from reservas");
+			res=enlace.seleccionRegistros("select * from reservas where id_usuario=(select id_usuario from usuarios where nombre='" + MenuPrincipal.DatosUsuario() + "');");
 			while(res.next()) {
-				consultaReservas.add(res.getString(1) +" | "+ res.getInt(2) +" | "+ res.getString(3));
+				consultaReservas.add(new Reserva(res.getString(1), res.getInt(3), res.getString(2), res.getInt(4)));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

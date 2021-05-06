@@ -47,4 +47,42 @@ public class RecintosDAO {
 		
 		return listaRecintos;
 	}
+	
+public static String sacarNombreRecinto(String id_pista){
+		
+		String nombre="";
+		ResultSet res=null;
+		try {
+			EnlaceJDBC enlace=new EnlaceJDBC();
+			res=enlace.seleccionRegistros("select nombre from recintos where id_recinto=(select id_recinto from pistas where id_pista=" + id_pista + ");" );
+			while(res.next()) {
+				nombre=res.getString(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return nombre;
+	}
+
+public static float sacarPrecioRecinto(String id_pista){
+	
+	float precio=0;
+	ResultSet res=null;
+	try {
+		EnlaceJDBC enlace=new EnlaceJDBC();
+		res=enlace.seleccionRegistros("select precio from recintos where id_recinto=(select id_recinto from pistas where id_pista=" + id_pista + ");" );
+		while(res.next()) {
+			precio=res.getFloat(1);
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	
+	return precio;
+}
 }

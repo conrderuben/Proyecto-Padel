@@ -30,8 +30,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JCheckBoxMenuItem;
 
 public class MenuPrincipal extends JFrame {
-	public static void DatosUsuario() {
-
+	public static String DatosUsuario() {
+		return usuario;
 	}
 
 	static String usuario;
@@ -213,7 +213,7 @@ public class MenuPrincipal extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				menuprincipal.setVisible(false);
 				MenuVerRecintos.usuario = MenuVerRecintos.datosUsuario(MenuPrincipal.usuario);
-				MenuVerRecintos.mostrarMenuVerRecintos(menuprincipal);
+				MenuRecintos.mostrarMenuRecintos(menuprincipal);
 			}
 		});
 		btnConsultaRecinto.addMouseListener(new MouseAdapter() {
