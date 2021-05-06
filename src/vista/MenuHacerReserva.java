@@ -148,6 +148,7 @@ public class MenuHacerReserva extends JDialog {
 				
 				listaReservas.add(PistasDAO.obtenerIdPista(comboBox_1.getSelectedItem().toString(), comboBox.getSelectedItem().toString().toString()) + "");
 				listaReservas.add(fecha);
+				JOptionPane.showMessageDialog(null, "Reserva realizada correctamente");
 				
 				
 					ReservasDAO.insertarReserva(listaReservas);
