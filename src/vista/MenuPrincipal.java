@@ -273,7 +273,6 @@ public class MenuPrincipal extends JFrame {
 				btnPerfil.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						menuprincipal.setVisible(false);
-						MenuPerfil.usuario = MenuPerfil.datosUsuario(MenuPrincipal.usuario);
 						MenuPerfil.mostrarMenuPerfil(menuprincipal);
 					}
 				});
