@@ -14,6 +14,7 @@ I hope you like it 😄.
 ## Requirements
 
 You need to activate Apache and MySql for it to work, you also have to import the BBDD.sql file on your localhost.
+It will also be necessary to add some 'recinto' manually in the database
 
 ## Installation
 You need to have Xampp installed or or another server MySql.
