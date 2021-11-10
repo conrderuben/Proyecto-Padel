@@ -20,4 +20,5 @@ You need to have Xampp installed or or another server MySql.
 
 ## Usage
 
+Once you have the server activated and the database imported, you should go to your development environment and run the main. Then you will have to register a user and after that you will be able to test the possibilities of the program.
 
